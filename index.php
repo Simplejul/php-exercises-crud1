@@ -70,11 +70,12 @@ $req -> closeCursor();
 
 <?php
 
-$sql = 'SELECT lastName, firstName, id FROM clients WHERE card=1';
+$sql = 'SELECT * FROM clients INNER JOIN cards  ON clients.cardNumber = cards.cardNumber WHERE cardTypesId=1';
 $req = $pdo -> query($sql);
 while ($row = $req -> fetch()){
-    echo '<p>'.$row['id']." ".$row['lastName']." ".$row['firstName'].'</p>';
+    echo '<p>'.$row['lastName']." ".$row['firstName'].'</p>';
 };
+echo '<br/>';
 $req -> closeCursor();
 
 ?>
@@ -107,7 +108,7 @@ $req -> closeCursor();
 
 ?>
 
-<h2>Exercice 1 : </h2>
+<h2>Exercice 7 : </h2>
 <h3>Afficher tous les clients.</h3><br/>
 
 <?php
